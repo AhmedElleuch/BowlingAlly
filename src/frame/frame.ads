@@ -1,9 +1,9 @@
 package Frame is
     type Roll_type is new Integer range 0 .. 10;
-    type Date is record
+    type Frame is record
       Roll1 : Roll_type;
       Roll2 : Roll_type;
    end record;
    
-   function SetRoll (Input : Integer) return Boolean;
+   function SetRoll (Roll_Input : Roll_type) return Boolean;
 end Frame;

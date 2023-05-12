@@ -1,10 +1,8 @@
 with Ada.Text_IO; use Ada.Text_IO;
 with Player;
-with Game;
-with Frame;
-
-procedure Main () is
-   
+procedure Main is
+   MyPlayer : Player.Player_t;
 begin
-    Put_Line("Welcom from Main");
+   MyPlayer.Score := 300;
+   Put_Line("Welcom from Main" & Integer'Image(MyPlayer.Score));
 end Main;
