@@ -1,0 +1,18 @@
+project BowlingAlly is
+ -- Configuration for the project
+ for Object_Dir use "obj";
+ for Source_Dirs use ("." ,"frame" ,"game" , "player");
+ for Exec_Dir use ".";
+ for Main use ("main.adb");
+ package Linker is
+  for Default_Switches ("ada") use ("-g");
+ end Linker;
+
+ package Binder is
+   for Default_Switches ("ada") use ("-E", "-static");
+ end Binder;
+ 
+ package Compiler is
+   for Default_Switches ("ada") use ("-g", "-gnatQ", "-O1", "-gnatf", "-gnato","-gnatwa.Xe"); 
+ end Compiler;
+end BowlingAlly;
