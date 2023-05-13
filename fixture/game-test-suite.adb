@@ -8,7 +8,7 @@ package body Game.Test.Suite is
       Ret : constant Access_Test_Suite := new Test_Suite;
    begin
       Ret.Add_Test
-        (Caller.Create ("Test Foo Game", Test_Foo'Access));
+        (Caller.Create ("Test Game Foo", Test_Foo'Access));
       return Ret;
    end Suite;
 

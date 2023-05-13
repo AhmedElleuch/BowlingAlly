@@ -1,11 +1,10 @@
 package Frame is
-   type Roll_type is new Integer range 0 .. 10;
+   type Roll_type is new Integer range -1 .. 10;
    type Frame is record
-      Roll1 : Roll_type;
-      Roll2 : Roll_type;
+      Roll1 : Roll_type := -1;
+      Roll2 : Roll_type := -1;
    end record;
 
-   function SetRoll (Roll_Input : Roll_type) return Boolean;
+   function SetRoll (I1 : Frame; I2 : Roll_type) return Frame;
 
-   function Foo (I1 : Integer; I2 : Integer) return Integer;
 end Frame;

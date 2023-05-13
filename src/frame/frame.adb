@@ -1,14 +1,14 @@
 package body Frame is
-   function SetRoll (Roll_Input : Roll_type) return Boolean is
+   function SetRoll (I1 : Frame; I2 : Roll_type) return Frame is
+      ret : Frame := I1;
    begin
-      if Roll_Input > 5 then
-         return False;
+      if I1.Roll1 = -1 then
+         ret.Roll1 := I2;
+         return ret;
+      else
+         ret.Roll2 := I2;
+         return ret;
       end if;
-      return True;
-   end SetRoll;
 
-   function Foo (I1 : Integer; I2 : Integer) return Integer is
-   begin
-      return I1 + I2;
-   end Foo;
+   end SetRoll;
 end Frame;
