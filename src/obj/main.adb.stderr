@@ -1,6 +1,0 @@
-main.adb:3:06: error: file "frame.ads" does not contain expected unit
-main.adb:3:06: error: expected unit "Frame (spec)"
-main.adb:3:06: error: found unit "Your_Package_Name (spec)"
-main.adb:5:17: error: identifier expected
-main.adb:9:01: error: statement expected
-compilation abandoned due to previous error

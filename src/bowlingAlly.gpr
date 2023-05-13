@@ -1,18 +1,29 @@
 project BowlingAlly is
  -- Configuration for the project
+ type Yes_No is ("yes", "no"); --what ?
+   Coverage : Yes_No := External ("COVERAGE", "no"); -- what ?
  for Object_Dir use "obj";
  for Source_Dirs use ("." ,"frame" ,"game" , "player");
  for Exec_Dir use ".";
  for Main use ("main.adb");
- package Linker is
+ 
+ package Linker is -- why
   for Default_Switches ("ada") use ("-g");
  end Linker;
 
- package Binder is
+ package Binder is -- why 
    for Default_Switches ("ada") use ("-E", "-static");
  end Binder;
  
  package Compiler is
-   for Default_Switches ("ada") use ("-g", "-gnatQ", "-O1", "-gnatf", "-gnato","-gnatwa.Xe"); 
+   -- for Default_Switches ("ada") use ("-g", "-gnatQ", "-O1", "-gnatf", "-gnato","-gnatwa.Xe"); 
+   for Default_Switches ("ada") use
+        ("-g", "-O0", "-gnatwae", "-gnaty", "-gnata");
+      case Coverage is
+      when "yes" =>
+         for Default_Switches ("ada") use Compiler'Default_Switches ("ada") &
+           ("-fprofile-arcs", "-ftest-coverage");
+      when others =>
+      end case;
  end Compiler;
 end BowlingAlly;

@@ -4,5 +4,5 @@ procedure Main is
    MyPlayer : Player.Player_t;
 begin
    MyPlayer.Score := 300;
-   Put_Line("Welcom from Main" & Integer'Image(MyPlayer.Score));
+   Put_Line ("Welcom from Main" & Integer'Image (MyPlayer.Score));
 end Main;

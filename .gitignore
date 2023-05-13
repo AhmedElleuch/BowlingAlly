@@ -1,4 +1,7 @@
 main.exe
 src/obj/
 src/obj/main.adb.stderr
+obj/
+src/obj/main.adb.stderr
+test_bowlingally.exe
 ~$BowlingAlly.xlsx
