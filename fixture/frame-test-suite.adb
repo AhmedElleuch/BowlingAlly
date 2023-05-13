@@ -9,6 +9,8 @@ package body Frame.Test.Suite is
    begin
       Ret.Add_Test
         (Caller.Create ("Test Frame Set_Roll", Test_Set_roll'Access));
+      Ret.Add_Test
+        (Caller.Create ("Test Frame Set_Type", Test_Set_Type'Access));
       return Ret;
 
 

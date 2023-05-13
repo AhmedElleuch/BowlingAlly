@@ -10,6 +10,7 @@ package Frame.Test is
    --  Test for Stack.Push
 
    procedure Test_Set_roll (T : in out Test);
+   procedure Test_Set_Type (T : in out Test);
    --  Test for Stack.Pop
 
 end Frame.Test;
