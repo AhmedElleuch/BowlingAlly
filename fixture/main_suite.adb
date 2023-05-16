@@ -1,6 +1,7 @@
 with Game.Test.Suite;
 with Frame.Test.Suite;
 with Player.Test.Suite;
+with Score.Test.Suite;
 
 package body Main_Suite is
 
@@ -10,6 +11,7 @@ package body Main_Suite is
       Ret.Add_Test (Game.Test.Suite.Suite);
       Ret.Add_Test (Frame.Test.Suite.Suite);
       Ret.Add_Test (Player.Test.Suite.Suite);
+      Ret.Add_Test (Score.Test.Suite.Suite);
       return Ret;
    end Suite;
 
