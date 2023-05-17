@@ -18,5 +18,8 @@ package Score.Test is
    procedure Test_Spareplusthrow (T : in out Test);
    procedure Test_Threestrikes (T : in out Test);
    procedure Test_Strikeplustwonormal (T : in out Test);
+   procedure Test_Spareplustwonormal (T :  in out Test);
+   procedure Test_AllStrikes (T : in out Test);
+   procedure Test_AllSpares (T : in out Test);
 
 end Score.Test;

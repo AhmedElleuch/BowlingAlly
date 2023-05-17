@@ -13,7 +13,8 @@ package body Score.Test is
       pragma Unreferenced (T);
    begin
       Assert (BA (3 & 0) = 3, "Single throw RESULT = "
-        & Integer'Image (BA (3 & 0)));
+        & Integer'Image (BA (3 & 0)) & Boolean'Image (BA (3 & 0)
+        = BA (3 & 0)));
    end Test_Singlethrow;
 
    procedure Test_Singlethrowstrike (T :  in out Test) is
@@ -68,7 +69,7 @@ package body Score.Test is
    procedure Test_Threestrikes (T :  in out Test) is
       pragma Unreferenced (T);
    begin
-      Assert (BA (10 & 10 & 10) = 50, "Three strikes RESULT = "
+      Assert (BA (10 & 10 & 10) = 60, "Three strikes RESULT = "
         & Integer'Image (BA (10 & 10 & 10)));
    end Test_Threestrikes;
 
@@ -78,5 +79,32 @@ package body Score.Test is
       Assert (BA (10 & 4 & 1) = 20, "Strike plus 2x normal RESULT = "
         & Integer'Image (BA (10 & 4 & 1)));
    end Test_Strikeplustwonormal;
+
+   procedure Test_Spareplustwonormal (T :  in out Test) is
+      pragma Unreferenced (T);
+   begin
+      Assert (BA (5 & 5 & 4 & 1) = 19, "Spare plus 2x normal RESULT = "
+        & Integer'Image (BA (5 & 5 & 4 & 1)));
+   end Test_Spareplustwonormal;
+
+   procedure Test_AllStrikes (T :  in out Test) is
+      pragma Unreferenced (T);
+   begin
+      Assert (BA (10 & 10 & 10 & 10 & 10 & 10 & 10 & 10 & 10 & 10
+              & 10 & 10) = 300, "Strike X 10 plus two bonus roll" &
+              Integer'Image (BA (10 & 10 & 10 & 10 & 10 &
+                                 10 & 10 & 10 & 10 & 10 & 10 & 10)));
+   end Test_AllStrikes;
+
+   procedure Test_AllSpares (T :  in out Test) is
+      pragma Unreferenced (T);
+   begin
+      Assert (BA (5 & 5 & 5 & 5 & 5 & 5 & 5 & 5 & 5 & 5 &
+                  5 & 5 & 5 & 5 & 5 & 5 & 5 & 5 & 5 & 5 & 5) = 150,
+                  "Spare X 10 plus Bonus" &
+                  Integer'Image (BA (5 & 5 & 5 & 5 & 5 & 5 & 5 & 5 & 5 & 5 &
+                                     5 & 5 & 5 & 5 & 5 & 5 & 5 & 5 &
+                                     5 & 5 & 5)));
+   end Test_AllSpares;
 
 end Score.Test;

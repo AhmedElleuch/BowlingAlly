@@ -52,6 +52,18 @@ package body Score.Test.Suite is
         (Caller.Create ("Test Score Test_Strikeplustwonormal",
          Test_Strikeplustwonormal'Access));
 
+      Ret.Add_Test
+        (Caller.Create ("Test Score Test_Spareplustwonormal",
+         Test_Spareplustwonormal'Access));
+
+      Ret.Add_Test
+        (Caller.Create ("Test Score Test_AllStrikes",
+         Test_AllStrikes'Access));
+
+      Ret.Add_Test
+        (Caller.Create ("Test Score Test_AllSpares",
+         Test_AllSpares'Access));
+
       return Ret;
    end Suite;
 
