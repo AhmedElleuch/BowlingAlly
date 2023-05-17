@@ -87,6 +87,14 @@ package body Score.Test is
         & Integer'Image (BA (5 & 5 & 4 & 1)));
    end Test_Spareplustwonormal;
 
+   procedure Test_NineStrikes (T :  in out Test) is
+      pragma Unreferenced (T);
+   begin
+      Assert (BA (10 & 10 & 10 & 10 & 10 & 10 & 10 & 10 & 10) = 240,
+              "Strike X 9" & Integer'Image (BA (10 & 10 & 10 & 10 & 10 &
+                                                10 & 10 & 10 & 10)));
+   end Test_NineStrikes;
+
    procedure Test_AllStrikes (T :  in out Test) is
       pragma Unreferenced (T);
    begin

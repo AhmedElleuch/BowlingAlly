@@ -57,6 +57,10 @@ package body Score.Test.Suite is
          Test_Spareplustwonormal'Access));
 
       Ret.Add_Test
+        (Caller.Create ("Test Score Test_NineStrikes",
+         Test_NineStrikes'Access));
+
+      Ret.Add_Test
         (Caller.Create ("Test Score Test_AllStrikes",
          Test_AllStrikes'Access));
 

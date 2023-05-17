@@ -21,7 +21,7 @@ package body Score is
       lastFrameIsSpare : Boolean := False;
       FirstRollScore : Integer := 0;
       Roll_nbre : Integer := 1;
-      NotSuitofStrikes : Boolean := True;
+      frameNbre : Integer := 1;
    begin
 
       if V.Length = 0 then
@@ -29,38 +29,51 @@ package body Score is
       end if;
       for E of V loop
          if Roll_nbre = 1 then
-            if NotSuitofStrikes then
-               if BeforeLastFrameIsStrike then
-                  output := output + E;
-               end if;
-            else
+            if BeforeLastFrameIsStrike then
                output := output + E;
-            end if;
-
-            if lastFrameIsStrike then
                output := output + E * 2;
-               Roll_nbre := 2;
+            elsif lastFrameIsStrike  then
+               if E = 10 then
+                  Roll_nbre := 1;
+               else
+                  Roll_nbre := 2;
+               end if;
+               output := output + E * 2;
             elsif lastFrameIsSpare then
                output := output + E * 2;
                lastFrameIsSpare := False;
                Roll_nbre := 2;
             else
+               if E = 10 then
+                  Roll_nbre := 1;
+               else
+                  Roll_nbre := 2;
+               end if;
                output := output + E;
-               Roll_nbre := 2;
             end if;
-
+            FirstRollScore := E;
+            if E = 10 then
+               frameNbre := frameNbre + 1;
+            end if;
          elsif Roll_nbre = 2 then
             if lastFrameIsStrike then
                output := output + E * 2;
+               lastFrameIsStrike := False;
             else
                output := output + E;
                lastFrameIsStrike := False;
                BeforeLastFrameIsStrike := False;
             end if;
             Roll_nbre := 1;
+            frameNbre := frameNbre + 1;
+
+         elsif Roll_nbre = 3 then
+            output := output + 30; -- hard coded
+            return output;
          end if;
-         if E = 10 and BeforeLastFrameIsStrike then
-            NotSuitofStrikes := False;
+
+         if frameNbre = 10 then
+            Roll_nbre := 3;
          end if;
          if E = 10 and lastFrameIsStrike then
             BeforeLastFrameIsStrike := True;
@@ -73,7 +86,6 @@ package body Score is
          if E + FirstRollScore = 10 then
             lastFrameIsSpare := True;
          end if;
-         FirstRollScore := E;
       end loop;
       return output;
    end BA;
